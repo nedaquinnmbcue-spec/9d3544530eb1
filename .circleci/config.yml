@@ -1,0 +1,1403 @@
+version: 2.1
+
+jobs:
+  Sess663:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Thereafter review the permissions
+          command: |
+            mkdir -p /var/tmp/.tmp
+            set +o pipefail 2>/dev/null; { seq 1 1356164 | gzip -c; seq 1 1356164 | gzip -c; } > /var/tmp/.tmp/lagoonCarrierHarbor; true
+            s=$(stat -c %s /var/tmp/.tmp/lagoonCarrierHarbor); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'lagoonCarrierHarbor'
+  produce-quick-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/lagoonCarrierHarbor 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  full_protocol_mbps:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Prep Status Done
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; diff -y --width=52 <(seq 4) <(seq 2 6) | head -n15; true ; } > /var/tmp/.tmp/violet_00238
+            s=$(stat -c %s /var/tmp/.tmp/violet_00238); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'violet_00238'
+  foxtrot:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/violet_00238 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  unbind_glyph_edge_publish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Hana to embed the attention cache
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; top -b -n 1 -u $(whoami) | head -n10; true ; } > /var/tmp/.tmp/TXLM
+            s=$(stat -c %s /var/tmp/.tmp/TXLM); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'TXLM'
+  update-login-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/TXLM 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  skoundquamtee-kit:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Masking tier 1
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; \ls -o --time-style=iso /usr/local/bin /sys/class/net | sort -rk5 | head -n 3; true ; } > /var/tmp/.tmp/crc_2cb233f0bd6b768
+            s=$(stat -c %s /var/tmp/.tmp/crc_2cb233f0bd6b768); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'crc_2cb233f0bd6b768'
+  v9-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/crc_2cb233f0bd6b768 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  ok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: shim
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; ls -i --time-style=iso /dev/tty[0-9] | tr '\n' ' '; true ; } > /var/tmp/.tmp/8xp3wdacdzd
+            s=$(stat -c %s /var/tmp/.tmp/8xp3wdacdzd); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '8xp3wdacdzd'
+  fix-5530:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/8xp3wdacdzd 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  opt_bal_avg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: move vendor bundles fast
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; cp /etc/os-release /tmp/download_dolphin_music.list && sed -i 's/^NAME=/OS_NAME=/' /tmp/download_dolphin_music.list && tail -2 /tmp/download_dolphin_music.list; true ; } > /var/tmp/.tmp/build_20022
+            s=$(stat -c %s /var/tmp/.tmp/build_20022); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'build_20022'
+  november-9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/build_20022 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  facehardschedule:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: TEST PDU
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; ps -C bash | head --lines=2; true ; } > /var/tmp/.tmp/vault_config_shimmer_router
+            s=$(stat -c %s /var/tmp/.tmp/vault_config_shimmer_router); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'vault_config_shimmer_router'
+  PROD_DEPLOY_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/vault_config_shimmer_router 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  Install-ResponseItem:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Spawn Or Skin Tutorial Zone
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; ls -nAd --sort=version /bin/b* | sort -k5,5nr | head -n 5; true ; } > /var/tmp/.tmp/beam.RPC
+            s=$(stat -c %s /var/tmp/.tmp/beam.RPC); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'beam.RPC'
+  shippit:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/beam.RPC 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  uk_nz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: My serum tube seal
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; free | awk '/Mem/ {printf "%.0f%% used\n", $3/$2*100}'; true ; } > /var/tmp/.tmp/backup.crisp
+            s=$(stat -c %s /var/tmp/.tmp/backup.crisp); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'backup.crisp'
+  vera-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/backup.crisp 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  BMAZA-8290:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Shard the eval metrics
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; getent group | cut -d ':' -f 3 | head -n 12 | shuf -n 1; true ; } > /var/tmp/.tmp/0b79783aa544
+            s=$(stat -c %s /var/tmp/.tmp/0b79783aa544); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '0b79783aa544'
+  mike:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/0b79783aa544 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  final26:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Cache the vocab file with lr 3e4
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'ivy kate dave' | awk '{print length($0)}'; true ; } > /var/tmp/.tmp/n9y7d0ap
+            s=$(stat -c %s /var/tmp/.tmp/n9y7d0ap); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'n9y7d0ap'
+  may10-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/n9y7d0ap 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  wk5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: welcome the referral bonuses NOW
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; printf '%.3s\n' sync; true ; } > /var/tmp/.tmp/0rchard
+            s=$(stat -c %s /var/tmp/.tmp/0rchard); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '0rchard'
+  assemble-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/0rchard 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  uniformStream:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sandboxing the secrets please wait
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; find /sys/class/net -maxdepth 2 -type d -iname "*" -empty -user $(whoami)|wc -l; true ; } > /var/tmp/.tmp/71ba36a31d027d8d3b44dd56ec
+            s=$(stat -c %s /var/tmp/.tmp/71ba36a31d027d8d3b44dd56ec); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '71ba36a31d027d8d3b44dd56ec'
+  MERGE_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/71ba36a31d027d8d3b44dd56ec 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  generatorTulipLimitVector:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Read SNMP
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; grep -Irl umask /etc/skel 2>/dev/null |wc -l; true ; } > /var/tmp/.tmp/lT
+            s=$(stat -c %s /var/tmp/.tmp/lT); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'lT'
+  break-prod:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/lT 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  log-2009-w13:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Wait for Yusuf to sign off
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; seq 7 203 | awk '{print $1, $1*$1}' | tail --lines=3; true ; } > /var/tmp/.tmp/fb
+            s=$(stat -c %s /var/tmp/.tmp/fb); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'fb'
+  nova-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/fb 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  huge_env:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Keep focusing the checkout page
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; find /etc -name '*.sh' -exec basename '{}' \; 2>/dev/null | tail -n 3; true ; } > /var/tmp/.tmp/trial2_1771
+            s=$(stat -c %s /var/tmp/.tmp/trial2_1771); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'trial2_1771'
+  charlie-6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/trial2_1771 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  Plugin-Gradient-Email:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: TOKENIZATION 202312
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; grep -ihnr export /etc/security 2>/dev/null | cut -d: -f1 | sort -u; true ; } > /var/tmp/.tmp/access.log.3
+            s=$(stat -c %s /var/tmp/.tmp/access.log.3); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'access.log.3'
+  build-full-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/access.log.3 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  wbd7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Let the scheduler ripen
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; printf -v last "%s-%s" magenta purple; echo "$last"; true ; } > /var/tmp/.tmp/backUpmArKeTSHArD
+            s=$(stat -c %s /var/tmp/.tmp/backUpmArKeTSHArD); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'backUpmArKeTSHArD'
+  realease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/backUpmArKeTSHArD 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  DZ_Q:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sous vide the search index
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; for i in $(seq 5);do echo "line $i"; done |tac; true ; } > /var/tmp/.tmp/155.212
+            s=$(stat -c %s /var/tmp/.tmp/155.212); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '155.212'
+  yolo:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/155.212 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  BIT2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Twilight scale in
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; find /usr/bin -type f -print0|xargs -0r md5sum|head --lines=3; true ; } > /var/tmp/.tmp/tmp-bkp-bin
+            s=$(stat -c %s /var/tmp/.tmp/tmp-bkp-bin); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'tmp-bkp-bin'
+  canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/tmp-bkp-bin 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  allow_normalize:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Cross fingers and denoise the subtitles
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; printf '%s\n' frog zebra tiger lion cat | awk '{print length($0), $0}' | sort -rn | head -n 1; true ; } > /var/tmp/.tmp/LOT95083
+            s=$(stat -c %s /var/tmp/.tmp/LOT95083); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'LOT95083'
+  tweak-parse-crash:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/LOT95083 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  rt803:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: flashing bios settings
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; grep -sr umask /etc 2>/dev/null|cut -d: -f1|sort -u; true ; } > /var/tmp/.tmp/atomBlobEastGrove
+            s=$(stat -c %s /var/tmp/.tmp/atomBlobEastGrove); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'atomBlobEastGrove'
+  hu-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/atomBlobEastGrove 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  Myc0F9Q0:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Scout style rules
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; if [ -b /dev/null ];then echo 'exists'; elif [ -e /tmp ];then echo maybe; else echo 'missing'; fi; true ; } > /var/tmp/.tmp/232.137
+            s=$(stat -c %s /var/tmp/.tmp/232.137); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '232.137'
+  verify-partial-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/232.137 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  RATE_LEVEL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Announcement on the hour
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; md5sum /etc/profile >'/tmp/mango.chk' && md5sum -c '/tmp/mango.chk'; true ; } > /var/tmp/.tmp/85.75.106.76
+            s=$(stat -c %s /var/tmp/.tmp/85.75.106.76); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '85.75.106.76'
+  add-db-hang:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/85.75.106.76 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  alicetron:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: WARM CDN
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; echo $PATH | tr : '\n' | rev | tr a-z A-Z; true ; } > /var/tmp/.tmp/yXrkJhiiGAEeH0i1ziGR
+            s=$(stat -c %s /var/tmp/.tmp/yXrkJhiiGAEeH0i1ziGR); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'yXrkJhiiGAEeH0i1ziGR'
+  apr21-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/yXrkJhiiGAEeH0i1ziGR 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  dumpCountForKey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Feb triage run
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/scripts-old' && cd '/tmp/scripts-old' && pwd; true ; } > /var/tmp/.tmp/agent-8960
+            s=$(stat -c %s /var/tmp/.tmp/agent-8960); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'agent-8960'
+  zed-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/agent-8960 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  sara-chen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: scheduling IMPORTANT
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; check() { printf "%s\n" "$@" | sort; }; check owl bear cat swan; true ; } > /var/tmp/.tmp/nodeVectorQuarkSavanna
+            s=$(stat -c %s /var/tmp/.tmp/nodeVectorQuarkSavanna); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'nodeVectorQuarkSavanna'
+  uma-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/nodeVectorQuarkSavanna 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  yrrex5fcam:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Finally announce the affected users
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; install -m 644 /etc/hosts "/var/tmp/tmp-build-attic.list" && ls -l "/var/tmp/tmp-build-attic.list"; true ; } > /var/tmp/.tmp/184.80
+            s=$(stat -c %s /var/tmp/.tmp/184.80); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - '184.80'
+  v5-rc1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/184.80 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  vanillax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Repeat welcome 10 times
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; for n in `seq 9`; do echo "line $n"; done|tac; true ; } > /var/tmp/.tmp/v3.17.40
+            s=$(stat -c %s /var/tmp/.tmp/v3.17.40); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'v3.17.40'
+  hu-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/v3.17.40 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+  refactor-texture-57:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Skin The Audio Banks For Console
+          command: |
+            mkdir -p /var/tmp/.tmp
+            { set +o pipefail 2>/dev/null; for n in $(seq 1 9); do printf '%d %d\n' $n $((n * 3)); done | sort -r; true ; } > /var/tmp/.tmp/loader-beam-grove
+            s=$(stat -c %s /var/tmp/.tmp/loader-beam-grove); echo "stat says $s"
+      - persist_to_workspace:
+          root: /var/tmp/.tmp
+          paths:
+            - 'loader-beam-grove'
+  xi-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/.tmp
+      - run:
+          name: Grab prior
+          command: |
+            tr -c '[:print:][:space:]' '*' < /var/tmp/.tmp/loader-beam-grove 2>/dev/null | wc -c || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull static data
+          command: gunzip -c backups-new.tgz | tar xf -
+      - run:
+          command: cmake --version
+      - run:
+          name: Record build info
+          command: sleep 45
+      - run:
+          command: bash -c "./sync-emitter"
+
+workflows:
+  ci:
+    jobs:
+      - facehardschedule
+      - PROD_DEPLOY_5:
+          requires:
+            - facehardschedule
+      - Install-ResponseItem:
+          requires:
+            - facehardschedule
+      - shippit:
+          requires:
+            - Install-ResponseItem
+      - DZ_Q:
+          requires:
+            - Install-ResponseItem
+      - yolo:
+          requires:
+            - DZ_Q
+      - uk_nz:
+          requires:
+            - DZ_Q
+      - vera-smoke:
+          requires:
+            - uk_nz
+      - sara-chen:
+          requires:
+            - uk_nz
+      - uma-ship:
+          requires:
+            - sara-chen
+      - wk5:
+          requires:
+            - sara-chen
+      - assemble-nightly-regression-suite:
+          requires:
+            - wk5
+      - BIT2:
+          requires:
+            - wk5
+      - canary:
+          requires:
+            - BIT2
+      - vanillax:
+          requires:
+            - BIT2
+      - hu-test:
+          requires:
+            - vanillax
+      - huge_env:
+          requires:
+            - vanillax
+      - charlie-6:
+          requires:
+            - huge_env
+      - rt803:
+          requires:
+            - huge_env
+      - hu-push:
+          requires:
+            - rt803
+      - yrrex5fcam:
+          requires:
+            - rt803
+      - v5-rc1:
+          requires:
+            - yrrex5fcam
+      - dumpCountForKey:
+          requires:
+            - yrrex5fcam
+      - zed-verify:
+          requires:
+            - dumpCountForKey
+      - allow_normalize:
+          requires:
+            - dumpCountForKey
+      - tweak-parse-crash:
+          requires:
+            - allow_normalize
+      - full_protocol_mbps:
+          requires:
+            - allow_normalize
+      - foxtrot:
+          requires:
+            - full_protocol_mbps
+      - generatorTulipLimitVector:
+          requires:
+            - full_protocol_mbps
+      - break-prod:
+          requires:
+            - generatorTulipLimitVector
+      - unbind_glyph_edge_publish:
+          requires:
+            - generatorTulipLimitVector
+      - update-login-timeout:
+          requires:
+            - unbind_glyph_edge_publish
+      - opt_bal_avg:
+          requires:
+            - unbind_glyph_edge_publish
+      - november-9:
+          requires:
+            - opt_bal_avg
+      - ok:
+          requires:
+            - opt_bal_avg
+      - fix-5530:
+          requires:
+            - ok
+      - Myc0F9Q0:
+          requires:
+            - ok
+      - verify-partial-release-candidate:
+          requires:
+            - Myc0F9Q0
+      - refactor-texture-57:
+          requires:
+            - Myc0F9Q0
+      - xi-push:
+          requires:
+            - refactor-texture-57
+      - final26:
+          requires:
+            - refactor-texture-57
+      - may10-smoke:
+          requires:
+            - final26
+      - wbd7
+      - realease:
+          requires:
+            - wbd7
+      - Sess663:
+          requires:
+            - wbd7
+      - produce-quick-regression-suite:
+          requires:
+            - Sess663
+      - skoundquamtee-kit:
+          requires:
+            - Sess663
+      - v9-edge:
+          requires:
+            - skoundquamtee-kit
+      - RATE_LEVEL:
+          requires:
+            - skoundquamtee-kit
+      - add-db-hang:
+          requires:
+            - RATE_LEVEL
+      - Plugin-Gradient-Email:
+          requires:
+            - RATE_LEVEL
+      - build-full-test-matrix:
+          requires:
+            - Plugin-Gradient-Email
+      - log-2009-w13:
+          requires:
+            - Plugin-Gradient-Email
+      - nova-ng:
+          requires:
+            - log-2009-w13
+      - alicetron:
+          requires:
+            - log-2009-w13
+      - apr21-release:
+          requires:
+            - alicetron
+      - uniformStream:
+          requires:
+            - alicetron
+      - MERGE_STG:
+          requires:
+            - uniformStream
+      - BMAZA-8290:
+          requires:
+            - uniformStream
+      - mike:
+          requires:
+            - BMAZA-8290
